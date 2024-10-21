@@ -3,7 +3,7 @@ import pickle
 import numpy as np
 
 # Load your trained logistic regression model
-with open('D:/Users/user/Desktop/Heart Disease Prediction/model2.pkl', 'rb') as file:
+with open('model2.pkl', 'rb') as file:
     model = pickle.load(file)
 
 # Streamlit app title
