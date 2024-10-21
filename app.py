@@ -25,10 +25,19 @@ vessels_fluro = st.selectbox("Number of Major Vessels (0-3) Colored by Fluorosco
 thallium = st.selectbox("Thallium Stress Test Result", ["Normal (0)", "Fixed Defect (1)", "Reversible Defect (2)"])
 
 # Create a DataFrame for input features
-input_features = np.array([[age, int(sex.split()[1]), int(chest_pain.split()[0]), bp, cholesterol,
-                            int(fbs.split()[0]), int(ekg.split()[0]), max_hr,
-                            int(exercise_angina.split()[0]), st_depression, int(slope.split()[0]),
-                            vessels_fluro, int(thallium.split()[0])]])
+input_features = np.array([[age,
+                            1 if "Male" in sex else 0,
+                            int(chest_pain.split()[0]),
+                            bp,
+                            cholesterol,
+                            1 if "Yes" in fbs else 0,
+                            int(ekg.split()[0]),
+                            max_hr,
+                            1 if "Yes" in exercise_angina else 0,
+                            st_depression,
+                            int(slope.split()[0]),
+                            vessels_fluro,
+                            int(thallium.split()[0])]])
 
 # Button for prediction
 if st.button("Predict"):
